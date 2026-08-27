@@ -1,4 +1,4 @@
-````markdown
+
 <div align="center">
 
 # Tour & Travel App
@@ -259,4 +259,4 @@ This project is currently maintained as a personal/academic development project.
 Made with ❤️ by **Abdul Rehman Yasir**
 
 </div>
-```
+
