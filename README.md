@@ -1,55 +1,262 @@
-# Wanderly — Tour & Travel Website
+````markdown
+<div align="center">
 
-A responsive static tour & travel website built with React + Vite. Built for React Project 0
-(component decomposition, props drilling, CSS in React).
+# Tour & Travel App
 
-## Tech
-- React 19 + Vite (plain JS, no TypeScript)
-- Plain CSS per component (CSS variables for theming, no framework)
-- No backend — all data is static, from `src/data/siteData.js`
+### Responsive React Tour & Travel Website
 
-## Getting started
+A modern, responsive tour and travel website built with React, featuring reusable components, destination exploration, travel packages, testimonials, and a mobile-friendly interface.
+
+</div>
+
+---
+
+## Overview
+
+**Tour & Travel App** is a responsive travel website developed with React.
+
+The project focuses on component-based development, reusable UI components, props-driven data, responsive design, and a clean user experience across desktop and mobile devices.
+
+Users can explore travel destinations, view available packages, read testimonials, and interact with destination details through an intuitive interface.
+
+## Core Features
+
+* 🌍 **Destination Exploration** — Browse featured travel destinations through reusable destination cards.
+* 🧭 **Travel Packages** — Explore available travel packages with structured package information.
+* 🔎 **Destination Details** — Open detailed information about destinations through interactive modals.
+* 💬 **Testimonials** — Display traveler testimonials using reusable testimonial components.
+* 📱 **Responsive Design** — Optimized for desktop, tablet, and mobile screen sizes.
+* 🧩 **Reusable Components** — UI is divided into reusable React components for maintainability.
+* 🔄 **Props-Based Data Flow** — Components receive and display data through React props.
+* 🎨 **Modern UI** — Clean travel-focused interface with responsive layouts and visual content.
+* ⚡ **Vite Development** — Fast development and optimized production builds using Vite.
+
+## Website Sections
+
+The website includes:
+
+* **Hero Section**
+* **Navigation Bar**
+* **Destinations**
+* **Destination Details**
+* **Travel Packages**
+* **Testimonials**
+* **Contact CTA**
+* **Footer**
+
+## Reusable Components
+
+The project uses multiple reusable React components, including:
+
+* `Navbar`
+* `Hero`
+* `DestinationCard`
+* `DestinationModal`
+* `Destinations`
+* `PackageCard`
+* `Packages`
+* `TestimonialCard`
+* `Testimonials`
+* `ContactCta`
+* `Footer`
+
+These components are organized into separate directories to keep the project structured and maintainable.
+
+## Technology Stack
+
+* **Frontend:** React
+* **Language:** JavaScript / JSX
+* **Build Tool:** Vite
+* **Styling:** CSS
+* **Package Manager:** npm
+* **Version Control:** Git & GitHub
+
+## Project Structure
+
+```text
+Tour-Travel-App/
+├── public/
+│   ├── favicon.svg
+│   └── icons.svg
+│
+├── src/
+│   ├── assets/
+│   │   ├── hero.png
+│   │   ├── react.svg
+│   │   └── vite.svg
+│   │
+│   ├── components/
+│   │   ├── ContactCta/
+│   │   ├── DestinationCard/
+│   │   ├── DestinationModal/
+│   │   ├── Destinations/
+│   │   ├── Footer/
+│   │   ├── Hero/
+│   │   ├── Navbar/
+│   │   ├── PackageCard/
+│   │   ├── Packages/
+│   │   ├── TestimonialCard/
+│   │   └── Testimonials/
+│   │
+│   ├── data/
+│   │   └── siteData.js
+│   │
+│   ├── App.jsx
+│   └── index.css
+│
+├── .gitignore
+├── index.html
+├── package.json
+├── package-lock.json
+└── vite.config.js
+````
+
+## Running Locally
+
+### Requirements
+
+* Node.js
+* npm
+
+### Install Dependencies
+
 ```bash
 npm install
-npm run dev      # local dev server
-npm run build    # production build -> dist/
-npm run preview  # preview the production build
 ```
 
-## Component tree
+### Start Development Server
+
+```bash
+npm run dev
 ```
+
+The development server will provide a local URL, normally:
+
+```text
+http://localhost:5173/
+```
+
+Open the URL in your browser to view the website.
+
+## Production Build
+
+Create an optimized production build with:
+
+```bash
+npm run build
+```
+
+The production files are generated inside:
+
+```text
+dist/
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## Responsive Design
+
+The website is designed to work across different screen sizes, including:
+
+* 💻 Desktop
+* 💻 Laptop
+* 📱 Mobile
+* 📱 Tablet
+
+Responsive layouts ensure that navigation, destination cards, travel packages, testimonials, images, and interactive elements remain usable on smaller screens.
+
+## Component-Based Architecture
+
+The project follows React's component-based architecture.
+
+Instead of placing the entire interface inside a single component, the application is divided into smaller reusable components.
+
+```text
 App
-├─ Navbar               (nav links + brand drilled down; mobile menu toggle)
-├─ Hero                 (title/subtitle/stats props)
-├─ Destinations         (maps destinations[] -> DestinationCard, drills onSelectDestination)
-│  └─ DestinationCard   (reusable card; receives single destination + onSelect)
-├─ Packages             (maps packages[] -> PackageCard)
-│  └─ PackageCard       (reusable pricing card)
-├─ Testimonials         (maps testimonials[] -> TestimonialCard)
-│  └─ TestimonialCard   (reusable review card)
-├─ ContactCta           (self-contained newsletter form, local state)
-├─ Footer               (brand + nav links drilled down)
-└─ DestinationModal     (controlled by selectedDestination state in App)
+├── Navbar
+├── Hero
+├── Destinations
+│   └── DestinationCard
+├── Packages
+│   └── PackageCard
+├── Testimonials
+│   └── TestimonialCard
+├── ContactCta
+└── Footer
 ```
 
-State (`selectedDestination`) is lifted up to `App` and drilled down through
-`Destinations -> DestinationCard` (via `onSelectDestination`) and back out to
-`DestinationModal`, demonstrating one level of prop drilling with a callback.
+This makes the application easier to understand, maintain, and extend.
 
-9 components total, all reusable/parameterized via props (well above the 5 required).
+## Props
+
+The project demonstrates passing data through React props.
+
+Examples include:
+
+* Destination information
+* Package information
+* Testimonial information
+* Modal content
+
+Reusable cards receive their required data from their parent components rather than duplicating the same UI structure.
 
 ## Deployment
-**Vercel**
-1. Push this folder to a new GitHub repo.
-2. Go to vercel.com → New Project → import the repo.
-3. Framework preset: Vite. Build command: `npm run build`. Output dir: `dist`.
-4. Deploy — you'll get a live URL.
 
-**Netlify**
-1. Push this folder to a new GitHub repo.
-2. Go to app.netlify.com → Add new site → Import an existing project.
-3. Build command: `npm run build`. Publish directory: `dist`.
-4. Deploy — you'll get a live URL.
+The project is suitable for deployment as a static React website on platforms such as:
 
-Or drag-and-drop the `dist/` folder directly into Netlify's dashboard for a quick deploy
-without connecting GitHub.
+* Vercel
+* Netlify
+
+### Recommended Deployment Configuration
+
+```text
+Framework: Vite
+Build Command: npm run build
+Output Directory: dist
+```
+
+The project does not require a backend server or database for its current functionality.
+
+## Assignment Requirements
+
+This project was developed to satisfy the requirements of a React tour and travel project:
+
+* ✅ At least 5 reusable components
+* ✅ Props passed through the component tree
+* ✅ Responsive mobile and desktop design
+* ✅ React-based implementation
+* ✅ Production build successfully generated
+* ✅ GitHub repository
+* ✅ Ready for static deployment
+
+## Development Verification
+
+The project has been verified locally with:
+
+```text
+npm install     ✅
+npm run dev     ✅
+npm run build   ✅
+npm run preview  ✅
+```
+
+The production build completed successfully using Vite.
+
+## License
+
+This project is currently maintained as a personal/academic development project.
+
+---
+
+<div align="center">
+
+**Tour & Travel App — Explore. Discover. Travel.**
+
+Made with ❤️ by **Abdul Rehman Yasir**
+
+</div>
+```
